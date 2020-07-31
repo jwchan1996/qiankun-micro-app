@@ -1,0 +1,30 @@
+{
+  "name": "portal",
+  "version": "1.0.0",
+  "description": "微前端主应用",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html -d dev --port 7099",
+    "start:multiple": "parcel multiple.html -d dev --port 7099",
+    "build": "parcel build index.html -d dist --public-url / --no-source-maps",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "devDependencies": {
+    "less": "^3.9.0",
+    "parcel-bundler": "^1.12.3",
+    "parcel-plugin-pre-clean": "^1.0.1"
+  },
+  "dependencies": {
+    "qiankun": "^2.0.16",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "vue": "^2.6.11"
+  },
+  "parcelClean": [
+    "dist"
+  ],
+  "parcelBuildClean": [
+    ".cache"
+  ]
+}

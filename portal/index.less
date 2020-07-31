@@ -1,0 +1,86 @@
+// 主应用慎用 reset 样式
+body {
+  margin: 0;
+}
+
+.mainapp {
+  // 防止被子应用的样式覆盖
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  line-height: 1;
+}
+
+.mainapp-header {
+  >h1 {
+    color: #333;
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0;
+    padding: 36px;
+    cursor: pointer;
+  }
+}
+
+.mainapp-main {
+  // display: flex;
+
+  .mainapp-sidemenu {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    background: url('./public/img/nav_bg.png');
+    background-clip: border-box;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    // background-color: #009688;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    // width: 130px;
+    list-style: none;
+    margin: 0;
+    // margin-left: 40px;
+    padding: 0;
+    // border-right: 2px solid #aaa;
+
+    li {
+      display: block;
+      color: #ececec;
+      background-color: rgba(255,255,255,0.2);
+      width: 200px;
+      height: 200px;
+      text-align: center;
+      line-height: 200px;
+      border-radius: 50%;
+      margin: 20px;
+      font-size: 18px;
+      font-weight: 400;
+      cursor: pointer;
+      transition: all 0.2s;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+    }
+  }
+}
+
+// 子应用区域
+#subapp-container {
+  flex-grow: 1;
+  position: relative;
+  margin: 0 40px;
+
+  .subapp-loading {
+    color: #444;
+    font-size: 28px;
+    font-weight: 600;
+    text-align: center;
+  }
+}
