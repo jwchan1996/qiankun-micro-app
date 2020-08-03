@@ -21,21 +21,38 @@ const loader = loading => render({ loading });
 registerMicroApps(
   [
     {
-      name: 'react16',
-      entry: '//main.ppap.live:7100',
+      name: 'app1',
+      entry: '//192.168.2.192:7100',
       // entry: process.env.NODE_ENV === 'production' ? '//main.ppap.live:7100' : '//localhost:7100',
       container: '#subapp-viewport',
       loader,
-      activeRule: '/react16',
+      activeRule: '/app1',
     },
     {
-      name: 'vue',
-      entry: '//main.ppap.live:7101',
+      name: 'app2',
+      entry: '//192.168.2.192:7101',
       // entry: process.env.NODE_ENV === 'production' ? '//main.ppap.live:7101' : '//localhost:7101',
       container: '#subapp-viewport',
       loader,
-      activeRule: '/vue',
+      activeRule: '/app2',
     }
+    // {
+    //   name: 'react16',
+    //   entry: '//main.ppap.live:7100',
+    //   // entry: process.env.NODE_ENV === 'production' ? '//main.ppap.live:7100' : '//localhost:7100',
+    //   container: '#subapp-viewport',
+    //   loader,
+    //   activeRule: '/react16',
+    // },
+    // {
+    //   name: 'vue',
+    //   // entry: '//main.ppap.live:7101',
+    //   entry: '//main.ppap.live:7101',
+    //   // entry: process.env.NODE_ENV === 'production' ? '//main.ppap.live:7101' : '//localhost:7101',
+    //   container: '#subapp-viewport',
+    //   loader,
+    //   activeRule: '/vue',
+    // }
   ],
   {
     beforeLoad: [
@@ -86,16 +103,19 @@ runAfterFirstMounted(() => {
   console.log('[MainApp] first app mounted');
 });
 
-//导航页逻辑
+//浏览器地址入栈
+function push(subapp) { history.pushState(null, subapp, subapp) }
+
+//配合导航页显示逻辑
 function initPortal(){
   //主应用跳转
-  document.querySelector('.react16').onclick = () => {
+  document.querySelector('.app1').onclick = () => {
     document.querySelector('.mainapp-sidemenu').style.visibility = 'hidden'
-    push('/react16')
+    push('/app1')
   }
-  document.querySelector('.vue').onclick = () => {
+  document.querySelector('.app2').onclick = () => {
     document.querySelector('.mainapp-sidemenu').style.visibility = 'hidden'
-    push('/vue')
+    push('/app2')
   }
 
   //回到导航页
@@ -108,16 +128,23 @@ function initPortal(){
   }else{
     document.querySelector('.mainapp-sidemenu').style.visibility = 'visible'
   }
+  if(location.pathname.indexOf('login') > -1){
+    document.querySelector('.mainapp-header').style.display = 'block'
+  }else{
+    document.querySelector('.mainapp-header').style.display = 'none'
+  }
 
   //监听浏览器前进回退
   window.addEventListener('popstate', () => { 
     if(location.pathname === '/'){
       document.querySelector('.mainapp-sidemenu').style.visibility = 'visible'
     }
+    if(location.pathname.indexOf('login') > -1){
+      document.querySelector('.mainapp-header').style.display = 'block'
+    }else{
+      document.querySelector('.mainapp-header').style.display = 'none'
+    }
   }, false)
 }
 
 initPortal()
-
-//浏览器地址入栈
-function push(subapp) { history.pushState(null, subapp, subapp) }
