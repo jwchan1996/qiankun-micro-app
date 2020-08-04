@@ -106,7 +106,7 @@ runAfterFirstMounted(() => {
 //浏览器地址入栈
 function push(subapp) { history.pushState(null, subapp, subapp) }
 
-//配合导航页显示逻辑
+//导航页逻辑
 function initPortal(){
   //主应用跳转
   document.querySelector('.app1').onclick = () => {
