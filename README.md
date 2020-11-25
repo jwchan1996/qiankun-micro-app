@@ -1,5 +1,10 @@
 # qiankun 微前端应用实践与部署
 
+[qiankun 微前端应用实践与部署](https://github.com/jwchan1996/blog/issues/21)
+[qiankun 微前端应用实践与部署（二）](https://github.com/jwchan1996/blog/issues/22)
+[qiankun 微前端应用实践与部署（三）](https://github.com/jwchan1996/blog/issues/24)
+[qiankun 微前端应用实践与部署（四）](https://github.com/jwchan1996/blog/issues/28)
+
 微前端应用分为主应用与子应用，部署方式是分别编译好主应用与子应用，将主应用与子应用部署到 `nginx` 配置好的目录即可。
 
 代码仓库 [https://github.com/jwchan1996/qiankun-micro-app](https://github.com/jwchan1996/qiankun-micro-app)
