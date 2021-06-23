@@ -22,16 +22,14 @@ registerMicroApps(
   [
     {
       name: 'app1',
-      entry: '//192.168.2.192:7100',
-      // entry: process.env.NODE_ENV === 'production' ? '//main.ppap.live:7100' : '//localhost:7100',
+      entry: process.env.NODE_ENV === 'production' ? '//main.ppap.live:7100' : '//localhost:7100',
       container: '#subapp-viewport',
       loader,
       activeRule: '/app1',
     },
     {
       name: 'app2',
-      entry: '//192.168.2.192:7101',
-      // entry: process.env.NODE_ENV === 'production' ? '//main.ppap.live:7101' : '//localhost:7101',
+      entry: process.env.NODE_ENV === 'production' ? '//main.ppap.live:7101' : '//localhost:7101',
       container: '#subapp-viewport',
       loader,
       activeRule: '/app2',
@@ -128,21 +126,11 @@ function initPortal(){
   }else{
     document.querySelector('.mainapp-sidemenu').style.visibility = 'visible'
   }
-  if(location.pathname.indexOf('login') > -1){
-    document.querySelector('.mainapp-header').style.display = 'block'
-  }else{
-    document.querySelector('.mainapp-header').style.display = 'none'
-  }
 
   //监听浏览器前进回退
   window.addEventListener('popstate', () => { 
     if(location.pathname === '/'){
       document.querySelector('.mainapp-sidemenu').style.visibility = 'visible'
-    }
-    if(location.pathname.indexOf('login') > -1){
-      document.querySelector('.mainapp-header').style.display = 'block'
-    }else{
-      document.querySelector('.mainapp-header').style.display = 'none'
     }
   }, false)
 }
