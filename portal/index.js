@@ -34,23 +34,6 @@ registerMicroApps(
       loader,
       activeRule: '/app2',
     }
-    // {
-    //   name: 'react16',
-    //   entry: '//main.ppap.live:7100',
-    //   // entry: process.env.NODE_ENV === 'production' ? '//main.ppap.live:7100' : '//localhost:7100',
-    //   container: '#subapp-viewport',
-    //   loader,
-    //   activeRule: '/react16',
-    // },
-    // {
-    //   name: 'vue',
-    //   // entry: '//main.ppap.live:7101',
-    //   entry: '//main.ppap.live:7101',
-    //   // entry: process.env.NODE_ENV === 'production' ? '//main.ppap.live:7101' : '//localhost:7101',
-    //   container: '#subapp-viewport',
-    //   loader,
-    //   activeRule: '/vue',
-    // }
   ],
   {
     beforeLoad: [
